@@ -14,7 +14,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     try {
       await sendPasswordResetEmail(auth, email);
-      setMessage("Password reset link sent! Check your inbox.");
+      setMessage("✅ Password reset link sent! Check your inbox.");
       setError("");
     } catch (err) {
       setError(err.message);
@@ -24,7 +24,10 @@ export default function ForgotPassword() {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      <form onSubmit={handleReset} className="bg-white shadow-lg rounded-2xl p-6 w-96">
+      <form
+        onSubmit={handleReset}
+        className="bg-white shadow-lg rounded-2xl p-6 w-96"
+      >
         <h1 className="text-2xl font-bold mb-4">Reset Password</h1>
 
         {message && <p className="text-green-600 text-sm mb-2">{message}</p>}
@@ -38,7 +41,10 @@ export default function ForgotPassword() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <button type="submit" className="w-full bg-purple-600 text-white p-2 rounded">
+        <button
+          type="submit"
+          className="w-full bg-purple-600 text-white p-2 rounded"
+        >
           Send Reset Link
         </button>
 
